@@ -32,14 +32,14 @@ fi
 
 # Check if database already exists
 RESULT=`mysql -u${ETHERPAD_DB_USER} -p${ETHERPAD_DB_PASSWORD} \
-	-hmysql --skip-column-names \
+	-h${MYSQL_PORT_3306_TCP_ADDR} --skip-column-names \
 	-e "SHOW DATABASES LIKE '${ETHERPAD_DB_NAME}'"`
 
 if [ "$RESULT" != $ETHERPAD_DB_NAME ]; then
 	# mysql database does not exist, create it
 	echo "Creating database ${ETHERPAD_DB_NAME}"
 
-	mysql -u${ETHERPAD_DB_USER} -p${ETHERPAD_DB_PASSWORD} -hmysql \
+	mysql -u${ETHERPAD_DB_USER} -p${ETHERPAD_DB_PASSWORD} -h${MYSQL_PORT_3306_TCP} \
 	      -e "create database ${ETHERPAD_DB_NAME}"
 fi
 
@@ -54,7 +54,7 @@ if [ ! -f settings.json ]; then
 	  "dbType" : "mysql",
 	  "dbSettings" : {
 			    "user"    : "${ETHERPAD_DB_USER}",
-			    "host"    : "mysql",
+			    "host"    : "${MYSQL_PORT_3306_TCP}",
 			    "password": "${ETHERPAD_DB_PASSWORD}",
 			    "database": "${ETHERPAD_DB_NAME}"
 			  },
