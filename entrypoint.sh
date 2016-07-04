@@ -37,7 +37,7 @@ if [ "$RESULT" != $ETHERPAD_DB_NAME ]; then
 	# mysql database does not exist, create it
 	echo "Creating database ${ETHERPAD_DB_NAME}"
 
-	mysql -u${ETHERPAD_DB_USER} -p${ETHERPAD_DB_PASSWORD} -h${MYSQL_PORT_3306_TCP} \
+	mysql -u${ETHERPAD_DB_USER} -p${ETHERPAD_DB_PASSWORD} -h${MYSQL_PORT_3306_TCP_ADDR} \
 	      -e "create database ${ETHERPAD_DB_NAME}"
 fi
 
@@ -51,7 +51,7 @@ if [ ! -f settings.json ]; then
 	  "dbType" : "mysql",
 	  "dbSettings" : {
 			    "user"    : "${ETHERPAD_DB_USER}",
-			    "host"    : "${MYSQL_PORT_3306_TCP}",
+			    "host"    : "${MYSQL_PORT_3306_TCP_ADDR}",
 			    "password": "${ETHERPAD_DB_PASSWORD}",
 			    "database": "${ETHERPAD_DB_NAME}"
 			  },
