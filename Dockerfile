@@ -1,6 +1,6 @@
 # Stable version of etherpad doesn't support npm 2
 FROM debian:jessie
-MAINTAINER Tony Motakis <tvelocity@gmail.com>
+MAINTAINER James Swineson <jamesswineson@gmail.com>
 
 ENV ETHERPAD_VERSION 1.6.0
 
