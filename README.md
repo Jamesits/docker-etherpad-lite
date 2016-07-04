@@ -1,5 +1,14 @@
 # Etherpad Lite image for docker
 
+## Note for Jamesits' Fork
+
+My fork adds the following features:
+ * Use `MYSQL_PORT_3306_TCP_ADDR` instead of hard-coded `mysql` for database name, suitable for use in DaoCloud
+ * Install plugins automatically: set `ETHERPAD_PLUGINS` to a comma separated list, e.g. `ep_adminpads,ep_headings2`
+ * Modified auto-generated config file to be production-ready and removed deprecated value.
+
+----------
+
 This is a docker image for [Etherpad Lite](http://etherpad.org/) collaborative
 text editor. The Dockerfile for this image has been inspired by the
 [official Wordpress](https://registry.hub.docker.com/_/wordpress/) Dockerfile and
