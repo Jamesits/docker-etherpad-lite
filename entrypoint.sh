@@ -48,6 +48,8 @@ if [ ! -f settings.json ]; then
 	  "title": "${ETHERPAD_TITLE}",
 	  "ip": "0.0.0.0",
 	  "port" :${ETHERPAD_PORT},
+	  "maxAge": "31536000",
+	  "minify": true,
 	  "dbType" : "mysql",
 	  "dbSettings" : {
 			    "user"    : "${ETHERPAD_DB_USER}",
@@ -76,4 +78,11 @@ if [ ! -f settings.json ]; then
 	EOF
 fi
 
+if [ $ETHERPAD_PLUGINS ]; then
+	IFS=',' read -r -a PLUGIN_LIST <<< "$ETHERPAD_PLUGINS"
+	for PLUGIN in "${PLUGIN_LIST[@]}"
+	do
+	    npm install ${PLUGIN}
+	done
+fi
 exec "$@"
