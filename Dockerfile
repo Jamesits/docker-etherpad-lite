@@ -5,7 +5,8 @@ MAINTAINER James Swineson <jamesswineson@gmail.com>
 ENV ETHERPAD_VERSION 1.6.0
 
 RUN apt-get update && \
-    apt-get install -y curl unzip nodejs-legacy npm mysql-client && \
+    apt-get upgrade -y && \
+    apt-get install -y curl unzip nodejs-legacy npm mysql-client supervisor && \
     rm -r /var/lib/apt/lists/*
 
 WORKDIR /opt/
@@ -24,7 +25,8 @@ RUN sed -i 's/^node/exec\ node/' bin/run.sh
 
 VOLUME /opt/etherpad-lite/var
 RUN ln -s var/settings.json settings.json
+ADD supervisor.conf /etc/supervisor/supervisor.conf
 
 EXPOSE 9001
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["bin/run.sh", "--root"]
+CMD ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
