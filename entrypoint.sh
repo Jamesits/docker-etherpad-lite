@@ -87,4 +87,8 @@ if [ $ETHERPAD_PLUGINS ]; then
 	    npm install ${PLUGIN}
 	done
 fi
-exec "$@"
+
+until "$@"; do
+    echo "Etherpad server crashed with exit code $?.  Respawning..." >&2
+    sleep 1
+done
