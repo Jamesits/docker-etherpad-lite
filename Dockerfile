@@ -18,7 +18,10 @@ RUN curl -SL \
 
 WORKDIR etherpad-lite
 
-RUN bin/installDeps.sh && rm settings.json
+RUN sed -i -- 's/http:\/\/code\.jquery\.com\/jquery-\$NEEDED_VERSION.js/http:\/\/code.jquery.com\/jquery-$NEEDED_VERSION.min.js/g' bin/installDeps.sh \
+    && rm -f src/static/js/jquery.js \
+    && bin/installDeps.sh \
+    && rm settings.json
 COPY entrypoint.sh /entrypoint.sh
 
 RUN sed -i 's/^node/exec\ node/' bin/run.sh
