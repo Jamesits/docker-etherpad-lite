@@ -80,6 +80,7 @@ if [ ! -f settings.json ]; then
 	EOF
 fi
 
+echo "Installing plugins..."
 if [ $ETHERPAD_PLUGINS ]; then
 	IFS=',' read -r -a PLUGIN_LIST <<< "$ETHERPAD_PLUGINS"
 	for PLUGIN in "${PLUGIN_LIST[@]}"
@@ -87,4 +88,5 @@ if [ $ETHERPAD_PLUGINS ]; then
 	    npm install ${PLUGIN}
 	done
 fi
+
 exec "$@"
