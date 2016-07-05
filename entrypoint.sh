@@ -49,8 +49,8 @@ if [ ! -f settings.json ]; then
 	{
 	  "title": "${ETHERPAD_TITLE}",
 	  "ip": "0.0.0.0",
-	  "port" :${ETHERPAD_PORT},
-	  "maxAge": "31536000",
+	  "port": ${ETHERPAD_PORT},
+	  "maxAge": "${ETHERPAD_MAXAGE:-3600}",
 	  "minify": true,
 	  "dbType" : "mysql",
 	  "dbSettings" : {

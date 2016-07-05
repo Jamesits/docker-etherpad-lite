@@ -61,9 +61,10 @@ and the /admin/ interface is accessible via it.
 * `ETHERPAD_ADMIN_USER`: If the admin password is set, this defaults to "admin".
 Otherwise the user can set it to another username.
 
-* `ETHERPAD_PLUGINS`: Comma-separated list for plugins to install by default 
- (on each start). Remember to use full name in npm repo, e.g. 
+* `ETHERPAD_PLUGINS`: Comma-separated list for plugins to install by default
+ (on each start). Remember to use full name in npm repo, e.g.
 `ep_adminpads,ep_headings2`.
+* `ETHERPAD_MAXAGE`: HTTP cache max age. Defaults to 3600.
 
 * `ETHERPAD_DB_USER`: By default Etherpad Lite will attempt to connect as root
 to the mysql container. This allows to change this.
@@ -72,7 +73,7 @@ used, then the password will default to the mysql container's
 `MYSQL_ROOT_PASSWORD`.
 * `ETHERPAD_DB_NAME`: The mysql database to use. Defaults to *etherpad*. If the
 database is not available, it will be created when the container is launched.
-* `MYSQL_PORT_3306_TCP_ADDR`: The database hostname or IP. Port will be 3306 
+* `MYSQL_PORT_3306_TCP_ADDR`: The database hostname or IP. Port will be 3306
 by default.
 
 The generated settings.json file will be available as a volume under
