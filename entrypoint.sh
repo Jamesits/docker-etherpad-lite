@@ -88,7 +88,8 @@ if [ $ETHERPAD_PLUGINS ]; then
 	done
 fi
 
-until "$@"; do
+while true; do
+    "$@"
     echo "Etherpad server crashed with exit code $?.  Respawning..." >&2
     sleep 1
 done
