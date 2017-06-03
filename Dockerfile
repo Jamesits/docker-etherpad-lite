@@ -4,9 +4,10 @@ MAINTAINER James Swineson <jamesswineson@gmail.com>
 
 ENV ETHERPAD_VERSION 1.6.1
 
-RUN apt-get update && \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && \
+    apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl unzip nodejs-legacy npm mysql-client supervisor && \
+    apt-get install -y curl unzip nodejs nodejs-lagecy npm mysql-client supervisor && \
     rm -r /var/lib/apt/lists/*
 
 WORKDIR /opt/
