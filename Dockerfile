@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y curl unzip mysql-client supervisor && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs nodejs-legacy && \
+    apt-get install -y nodejs && \
     rm -r /var/lib/apt/lists/*
 
 WORKDIR /opt/
