@@ -1,4 +1,3 @@
-# Stable version of etherpad doesn't support npm 2
 FROM node:8.12-jessie
 MAINTAINER James Swineson <jamesswineson@gmail.com>
 
