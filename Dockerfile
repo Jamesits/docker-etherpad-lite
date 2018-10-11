@@ -1,14 +1,12 @@
 # Stable version of etherpad doesn't support npm 2
-FROM debian:jessie
+FROM node:8.12-jessie
 MAINTAINER James Swineson <jamesswineson@gmail.com>
 
-ENV ETHERPAD_VERSION 1.6.1
+ENV ETHERPAD_VERSION 1.7.0
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl unzip mysql-client supervisor && \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y curl unzip mysql-client supervisor gzip git python libssl-dev pkg-config build-essential && \
     rm -r /var/lib/apt/lists/*
 
 WORKDIR /opt/
