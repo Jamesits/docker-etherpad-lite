@@ -1,5 +1,7 @@
 # Etherpad Lite image for docker
 
+[![Build Status](https://dev.azure.com/nekomimiswitch/General/_apis/build/status/Etherpad)](https://dev.azure.com/nekomimiswitch/General/_build/latest?definitionId=6)
+
 ## Note for This Fork
 
 Features:
@@ -40,7 +42,9 @@ First you need a running mysql container, for example:
 $ docker run -d -e MYSQL_ROOT_PASSWORD=password --name ep_mysql mysql
 ```
 
-Finally you can start an instance of Etherpad Lite:
+(If you want to use your own MySQL server, you only need to set the environment variables below.)
+
+Then you can start an instance of Etherpad Lite:
 
 ```bash
 $ docker run -d --link=ep_mysql:mysql -p 9001:9001 jamesits/etherpad-lite
