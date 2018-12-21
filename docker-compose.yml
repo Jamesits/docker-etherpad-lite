@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:latest
+    restart: on-failure:5
+    env_file: mariadb.env
+    volumes:
+      - db:/var/lib/mysql
+    hostname: mysql
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure:10
+    ports:
+      - 9001:9001
+    env_file: etherpad.env
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9001"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - db
+
+volumes:
+  db:
