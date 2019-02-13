@@ -1,2 +1,3 @@
 etherpad.env
 mariadb.env
+*.gz
