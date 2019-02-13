@@ -5,7 +5,7 @@ services:
     image: mariadb:latest
     restart: on-failure:5
     networks:
-      - nginxdocker_interna
+      - nginx-docker_interna
     env_file: mariadb.env
     volumes:
       - db:/var/lib/mysql
@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     restart: on-failure:10
     networks:
-      - nginxdocker_interna
+      - nginx-docker_interna
     ports:
       - 9001:9001
     env_file: etherpad.env
@@ -34,5 +34,5 @@ volumes:
   db:
 
 networks:
-  nginxdocker_interna:
+  nginx-docker_interna:
     external: true
