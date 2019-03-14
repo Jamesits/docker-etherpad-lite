@@ -3,7 +3,6 @@ version: '3'
 services:
   db:
     image: mariadb:latest
-    restart: on-failure:5
     networks:
       - nginx-docker_interna
     env_file: mariadb.env
@@ -14,7 +13,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: on-failure:10
     networks:
       - nginx-docker_interna
     ports:

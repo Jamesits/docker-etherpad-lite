@@ -3,6 +3,8 @@ MAINTAINER James Swineson <jamesswineson@gmail.com>
 
 ENV ETHERPAD_VERSION 1.7.0
 
+ENV NODE_ENV production
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y curl unzip mysql-client supervisor gzip git python libssl-dev pkg-config build-essential && \
