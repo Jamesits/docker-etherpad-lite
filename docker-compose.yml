@@ -3,8 +3,6 @@ version: '3'
 services:
   db:
     image: mariadb:latest
-    networks:
-      - nginx-docker_interna
     env_file: mariadb.env
     volumes:
       - db:/var/lib/mysql
@@ -13,8 +11,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    networks:
-      - nginx-docker_interna
     ports:
       - 9001:9001
     env_file: etherpad.env
@@ -30,7 +26,3 @@ services:
 
 volumes:
   db:
-
-networks:
-  nginx-docker_interna:
-    external: true
