@@ -1,4 +1,4 @@
-FROM node:8.12-jessie
+FROM node:8-jessie
 MAINTAINER James Swineson <jamesswineson@gmail.com>
 
 ENV ETHERPAD_VERSION 1.7.0
