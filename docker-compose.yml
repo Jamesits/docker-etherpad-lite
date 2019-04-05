@@ -3,6 +3,7 @@ version: '3'
 services:
   db:
     image: mariadb:latest
+    restart: on-failure:5
     env_file: mariadb.env
     volumes:
       - db:/var/lib/mysql
@@ -11,6 +12,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: on-failure:10
     ports:
       - 9001:9001
     env_file: etherpad.env
