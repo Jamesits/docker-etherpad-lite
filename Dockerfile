@@ -1,7 +1,7 @@
-FROM node:8-jessie
+FROM node:8.16-jessie
 MAINTAINER James Swineson <jamesswineson@gmail.com>
 
-ENV ETHERPAD_VERSION 1.7.0
+ENV ETHERPAD_VERSION 1.7.5
 
 ENV NODE_ENV production
 
@@ -19,9 +19,7 @@ RUN curl -SL \
 
 WORKDIR etherpad-lite
 
-RUN sed -i -- 's/http:\/\/code\.jquery\.com\/jquery-\$NEEDED_VERSION.js/http:\/\/code.jquery.com\/jquery-$NEEDED_VERSION.min.js/g' bin/installDeps.sh \
-    && rm -f src/static/js/jquery.js \
-    && bin/installDeps.sh \
+RUN bin/installDeps.sh \
     && rm settings.json
 COPY entrypoint.sh /entrypoint.sh
 
