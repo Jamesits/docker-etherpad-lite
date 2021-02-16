@@ -67,7 +67,7 @@ Otherwise the user can set it to another username.
 
 * `ETHERPAD_PLUGINS`: Comma-separated list for plugins to install by default
  (on each start). Remember to use full name in npm repo, e.g.
-`ep_adminpads,ep_headings2`.
+`ep_adminpads2,ep_headings2`.
 * `ETHERPAD_MAXAGE`: HTTP cache max age. Defaults to 3600.
 
 * `ETHERPAD_DB_USER`: By default Etherpad Lite will attempt to connect as root
