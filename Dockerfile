@@ -1,7 +1,7 @@
 FROM node:lts
 MAINTAINER James Swineson <jamesswineson@gmail.com>
 
-ENV ETHERPAD_VERSION 1.8.8
+ENV ETHERPAD_VERSION 1.8.9
 
 ENV NODE_ENV production
 
